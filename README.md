@@ -58,7 +58,8 @@ NeoMorph UI Kit includes the following components:
 
 To use a component from NeoMorph UI Kit in your Next.js project, import it from the components directory:
 
-jsx
+
+```jsx
 import { Button, Card } from '@/components';
 export default function MyPage() {
 return (
@@ -68,6 +69,7 @@ return (
 </Card>
 );
 }
+```
 
 ## 📚 Documentation
 
