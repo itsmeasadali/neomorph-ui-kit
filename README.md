@@ -1,36 +1,91 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# NeoMorph UI Kit
+
+NeoMorph UI Kit is a modern, customizable React component library built with Next.js and Tailwind CSS. It features a unique neomorphic design style with full dark mode support, perfect for creating visually appealing and accessible user interfaces.
+
+## Features
+
+- 🎨 Neomorphic design with customizable colors
+- 🌓 Full dark mode support
+- 🧩 Variety of UI components
+- 🚀 Built with Next.js for optimal performance
+- 🎭 Fully typed with TypeScript
+- 🎢 Smooth transitions and animations
+- 📱 Responsive design
+
+## Components
+
+NeoMorph UI Kit includes the following components:
+
+- Button
+- Input
+- ToggleSwitch
+- Dropdown
+- Tab
+- Card
+- Accordion
+- Tag
+- Modal
+- Tooltip
+- Breadcrumb
+- Slider
+- Progress Bar
 
 ## Getting Started
 
-First, run the development server:
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/itsmeasadali/neomorph-ui-kit.git
+   cd neomorph-ui-kit
+   ```
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+2. Install dependencies:
+   ```bash
+   npm install
+   # or
+   yarn install
+   ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+3. Run the development server:
+   ```bash
+   npm run dev
+   # or
+   yarn dev
+   ```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+4. Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Usage
 
-## Learn More
+To use a component from NeoMorph UI Kit in your Next.js project, import it from the components directory:
 
-To learn more about Next.js, take a look at the following resources:
+jsx
+import { Button, Card } from '@/components';
+export default function MyPage() {
+return (
+<Card>
+<h1>Welcome to NeoMorph UI Kit</h1>
+<Button>Get Started</Button>
+</Card>
+);
+}
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 📚 Documentation
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+For detailed documentation, examples, and API references, visit our [documentation site](https://neomorph-ui-kit-docs.vercel.app).
 
-## Deploy on Vercel
+## 🤝 Contributing
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+We welcome contributions! Please see our [Contributing Guide](CONTRIBUTING.md) for more details.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## 📄 License
+
+NeoMorph UI Kit is open-source software licensed under the [MIT license](LICENSE).
+
+## 🙏 Acknowledgements
+
+Special thanks to all our contributors and the amazing open-source community that makes projects like this possible.
+
+---
+
+Built with ❤️ by [Me Asad Ali](https://github.com/itsmeasadali)
+

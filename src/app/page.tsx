@@ -1,113 +1,157 @@
-import Image from "next/image";
+'use client';
+
+import React, { useState } from 'react';
+import Button from '@/components/Button';
+import Card from '@/components/Card';
+import Input from '@/components/Input';
+import Tab from '@/components/Tab';
+import Accordion from '@/components/Accordion';
+import Breadcrumb from '@/components/Breadcrumb';
+import Dropdown from '@/components/Dropdown';
+import Modal from '@/components/Modal';
+import Pagination from '@/components/Pagination';
+import ProgressBar from '@/components/ProgressBar';
+import Alert from '@/components/Alert';
+import Avatar from '@/components/Avatar';
+import SkeletonLoader from '@/components/SkeletonLoader';
+import ToggleSwitch from '@/components/ToggleSwitch';
+import Tooltip from '@/components/Tooltip';
+import Badge from '@/components/Badge';
+import Tag from '@/components/Tag';
+import Checkbox from '@/components/Checkbox';
+import RadioButton from '@/components/RadioButton';
 
 export default function Home() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [isChecked, setIsChecked] = useState(false);
+  const [selectedRadio, setSelectedRadio] = useState('');
+
+  const handleClick = () => console.log('Clicked');
+  const handlePageChange = (page: number) => setCurrentPage(page);
+  const handleToggle = () => setIsChecked(!isChecked);
+  const handleRadioChange = (value: string) => setSelectedRadio(value);
+
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">src/app/page.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:size-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+    <div className="container mx-auto p-4">
+      <h1 className="text-3xl font-bold mb-6">UI Components</h1>
+      
+      <section className="mb-8">
+        <h2 className="text-2xl font-semibold mb-4">Buttons</h2>
+        <div className="flex space-x-2">
+          <Button onClick={handleClick}>Default Button</Button>
+          <Button variant="cyan">Cyan Button</Button>
+          <Button variant="blue">Blue Button</Button>
         </div>
-      </div>
+      </section>
 
-      <div className="relative z-[-1] flex place-items-center before:absolute before:h-[300px] before:w-full before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 sm:before:w-[480px] sm:after:w-[240px] before:lg:h-[360px]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
+      <section className="mb-8">
+        <h2 className="text-2xl font-semibold mb-4">Cards</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          <Card title="Card 1" description="This is a sample card" />
+          <Card title="Card 2" description="Another sample card" imageUrl="https://via.placeholder.com/300" />
+        </div>
+      </section>
 
-      <div className="mb-32 grid text-center lg:mb-0 lg:w-full lg:max-w-5xl lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Docs{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
+      <section className="mb-8">
+        <h2 className="text-2xl font-semibold mb-4">Input</h2>
+        <Input placeholder="Enter text here" label="Sample Input" />
+      </section>
 
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Learn{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
+      <section className="mb-8">
+        <h2 className="text-2xl font-semibold mb-4">Tabs</h2>
+        <Tab tabs={[
+          { label: 'Tab 1', content: <p>Content for Tab 1</p> },
+          { label: 'Tab 2', content: <p>Content for Tab 2</p> },
+        ]} />
+      </section>
 
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Templates{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Explore starter templates for Next.js.
-          </p>
-        </a>
+      <section className="mb-8">
+        <h2 className="text-2xl font-semibold mb-4">Accordion</h2>
+        <Accordion items={[
+          { title: 'Section 1', content: 'Content for Section 1' },
+          { title: 'Section 2', content: 'Content for Section 2' },
+        ]} />
+      </section>
 
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Deploy{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-balance text-sm opacity-50">
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
+      <section className="mb-8">
+        <h2 className="text-2xl font-semibold mb-4">Breadcrumb</h2>
+        <Breadcrumb items={[
+          { label: 'Home', href: '/' },
+          { label: 'Components', href: '/components' },
+        ]} />
+      </section>
+
+      <section className="mb-8">
+        <h2 className="text-2xl font-semibold mb-4">Dropdown</h2>
+        <Dropdown options={['Option 1', 'Option 2', 'Option 3']} onSelect={(option) => console.log(option)} />
+      </section>
+
+      <section className="mb-8">
+        <h2 className="text-2xl font-semibold mb-4">Modal</h2>
+        <Button onClick={() => setIsModalOpen(true)}>Open Modal</Button>
+        <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} title="Sample Modal">
+          <p>This is the content of the modal.</p>
+        </Modal>
+      </section>
+
+      <section className="mb-8">
+        <h2 className="text-2xl font-semibold mb-4">Pagination</h2>
+        <Pagination currentPage={currentPage} totalPages={5} onPageChange={handlePageChange} />
+      </section>
+
+      <section className="mb-8">
+        <h2 className="text-2xl font-semibold mb-4">Progress Bar</h2>
+        <ProgressBar progress={50} />
+      </section>
+
+      <section className="mb-8">
+        <h2 className="text-2xl font-semibold mb-4">Alert</h2>
+        <Alert type="success" message="This is a success alert!" />
+      </section>
+
+      <section className="mb-8">
+        <h2 className="text-2xl font-semibold mb-4">Avatar</h2>
+        <Avatar src="https://via.placeholder.com/150" alt="User Avatar" />
+      </section>
+
+      <section className="mb-8">
+        <h2 className="text-2xl font-semibold mb-4">Skeleton Loader</h2>
+        <SkeletonLoader width="200px" height="20px" />
+      </section>
+
+      <section className="mb-8">
+        <h2 className="text-2xl font-semibold mb-4">Toggle Switch</h2>
+        <ToggleSwitch label="Toggle me" onChange={handleToggle} />
+      </section>
+
+      <section className="mb-8">
+        <h2 className="text-2xl font-semibold mb-4">Tooltip</h2>
+        <Tooltip text="This is a tooltip">
+          <span className="underline cursor-help">Hover me</span>
+        </Tooltip>
+      </section>
+
+      <section className="mb-8">
+        <h2 className="text-2xl font-semibold mb-4">Badge</h2>
+        <Badge text="New" color="red" />
+      </section>
+
+      <section className="mb-8">
+        <h2 className="text-2xl font-semibold mb-4">Tag</h2>
+        <Tag text="Sample Tag" onRemove={() => console.log('Tag removed')} />
+      </section>
+
+      <section className="mb-8">
+        <h2 className="text-2xl font-semibold mb-4">Checkbox</h2>
+        <Checkbox label="Check me" checked={isChecked} onChange={handleToggle} />
+      </section>
+
+      <section className="mb-8">
+        <h2 className="text-2xl font-semibold mb-4">Radio Button</h2>
+        <RadioButton label="Option 1" name="sample" value="option1" checked={selectedRadio === 'option1'} onChange={handleRadioChange} />
+        <RadioButton label="Option 2" name="sample" value="option2" checked={selectedRadio === 'option2'} onChange={handleRadioChange} />
+      </section>
+    </div>
   );
 }
